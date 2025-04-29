@@ -5,6 +5,7 @@ const cors = require('cors');
 
 //importar las rutas de routes
 const categoryRoutes = require('./routes/categoryRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 //Ruta de la API
 app.use('/v1/api/categorias', categoryRoutes);
+app.use('/v1/api/productos', productRoutes);
 
 //conexion a mongoDB y arranque del servidor
 mongoose

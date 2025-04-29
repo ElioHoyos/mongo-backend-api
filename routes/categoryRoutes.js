@@ -12,4 +12,17 @@ router.get('/', async (req,res) => {
     }
 });
 
+//Crear Categorias
+router.post('/', async (req,res) => {
+    try {
+        const cat = await Category({
+            nombre:         req.body.nombre,
+            descripcion:    req.body.descripcion
+        }).save();
+        res.status(201).json(cat);
+    } catch (e) {
+        res.status(400).json({error: e.message});
+    }
+});
+
 module.exports = router;
